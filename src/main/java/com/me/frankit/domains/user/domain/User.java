@@ -1,6 +1,7 @@
 package com.me.frankit.domains.user.domain;
 
 import com.me.frankit.base.domain.BaseDateEntity;
+import com.me.frankit.domains.goods.domain.Goods;
 import com.me.frankit.domains.user.domain.embed.Certification;
 import com.me.frankit.domains.user.domain.embed.UserRole;
 import com.me.frankit.domains.user.dto.UserSignUpRequest;
@@ -45,6 +46,9 @@ public class User extends BaseDateEntity {
 
 	@OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
 	private final List<UserCertificationHistory> userCertificationHistories = new ArrayList<>(); // 사용자 인증 이력
+
+	@OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+	private final List<Goods> goodsList = new ArrayList<>(); // 상품
 
 	/**
 	 * 회원 가입

@@ -11,8 +11,11 @@ import com.querydsl.jpa.impl.JPAUpdateClause;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.JpaEntityInformationSupport;
+import org.springframework.data.support.PageableExecutionUtils;
 import org.springframework.data.util.ProxyUtils;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -133,5 +136,15 @@ public abstract class BaseRepository<E, ID> {
 
 	private Boolean isNewEntity(E entity) {
 		return this.getJpaEntityInformation(entity.getClass()).isNew(entity);
+	}
+
+	protected <DTO> Page<DTO> applyPagination(JPAQuery<DTO> contentQuery, JPAQuery<Long> countQuery, Pageable pageable) {
+		return PageableExecutionUtils.getPage(
+				contentQuery.offset(pageable.getOffset())
+						.limit(pageable.getPageSize())
+						.fetch(),
+				pageable,
+				countQuery::fetchOne
+		);
 	}
 }

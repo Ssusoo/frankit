@@ -16,8 +16,7 @@ public enum ApiResponseCode {
 	REFRESH_TOKEN_RENEW_FAILURE(400, "R40010-002", "리프래시 토큰 갱신 실패"),
 	USER_CERTIFICATION_NOT_FOUND(400, "R40010-003", "사용자 인증 데이터가 없습니다."),
 	USER_EMAIL_EXISTS(400, "R40010-004", "이미 사용중인 이메일입니다."),
-	MBTI_ANSWER_FAILURE(400, "R40010-005", "설문지 작성에 유효하지 않은 값입니다."),
-	MBTI_ANSWER_EXISTS(400, "R40010-006", "이미 MBTI 답변을 제출했습니다."),
+	GOODS_OPTION_FAILURE(400, "R40010-005", "해당 상품에는 옵션을 최대 3개까지 등록할 수 있습니다."),
 
 	UNAUTHORIZED(401, "R40100", "인증이 필요한 API 입니다."),
 	EXPIRED_TOKEN(401, "R40101", "만료된 토큰입니다."),
