@@ -27,7 +27,7 @@ public class GoodsController extends BaseController {
 
 	@Operation(summary = "상품 목록 조회")
 	@GetMapping("/list")
-	public ApiResponse<Pagination<GoodsFindRequest.Result>> getLogisticsGoods(
+	public ApiResponse<Pagination<GoodsFindRequest.Result>> getGoods(
 			@Valid GoodsFindRequest request,
 			@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "10") int size
@@ -37,7 +37,7 @@ public class GoodsController extends BaseController {
 
 	@Operation(summary = "상품 등록")
 	@PostMapping("/create")
-	public ApiResponse<Object> postLogisticsGoods(@Valid GoodsCreateRequest request) {
+	public ApiResponse<Object> postGoods(@Valid @RequestBody GoodsCreateRequest request) {
 		goodsCreateService.create(request);
 		return ok();
 	}
@@ -50,8 +50,7 @@ public class GoodsController extends BaseController {
 
 	@Operation(summary = "상품 수정")
 	@PutMapping(path = "/{goodsId}")
-	public ApiResponse<Object> putGoods(@PathVariable Long goodsId,
-	                                             @Valid GoodsModifyRequest request) {
+	public ApiResponse<Object> putGoods(@PathVariable Long goodsId, @Valid @RequestBody GoodsModifyRequest request) {
 		goodsModifyService.modify(goodsId, request);
 		return ok();
 	}

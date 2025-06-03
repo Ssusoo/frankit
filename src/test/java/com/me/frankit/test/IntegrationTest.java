@@ -68,7 +68,7 @@ public abstract class IntegrationTest {
 	public final String getMockUserJwtToken() {
 		JwtTokenPayload payload = JwtTokenPayload.builder()
 				.userId(1L)
-				.userEmail("test@test.com")
+				.userEmail("frankit@test.com")
 				.userName("김테스트")
 				.roles(List.of(UserRole.USER.name()))
 				.build();

@@ -38,7 +38,7 @@ public class GoodsOptionController extends BaseController {
 
 	@Operation(summary = "상품 옵션 등록")
 	@PostMapping("/create")
-	public ApiResponse<Object> postLogisticsGoods(@Valid GoodsOptionCreateRequest request) throws JsonProcessingException {
+	public ApiResponse<Object> postLogisticsGoods(@Valid @RequestBody GoodsOptionCreateRequest request) throws JsonProcessingException {
 		goodsOptionCreateService.create(request);
 		return ok();
 	}
@@ -52,7 +52,7 @@ public class GoodsOptionController extends BaseController {
 	@Operation(summary = "상품 옵션 수정")
 	@PutMapping(path = "/{goodsOptionId}")
 	public ApiResponse<Object> putGoods(@PathVariable Long goodsOptionId,
-	                                    @Valid GoodsOptionModifyRequest request) throws JsonProcessingException {
+	                                    @Valid @RequestBody GoodsOptionModifyRequest request) throws JsonProcessingException {
 		goodsOptionModifyService.modify(goodsOptionId, request);
 		return ok();
 	}
