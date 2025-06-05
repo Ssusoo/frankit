@@ -1,4 +1,4 @@
-# 스펙터 과제 API
+# 프랜킷 과제 API
 ![IntelliJ](https://img.shields.io/badge/-IntelliJ-000000?logo=IntelliJ%20IDEA&logoColor=white)
 ![Springboot](https://img.shields.io/badge/-springboot3-6DB33F?logo=springboot&logoColor=white&&style=flat)
 ![Junit5](https://img.shields.io/badge/-junit5-25A162?logo=junit5&logoColor=white&&style=flat)
